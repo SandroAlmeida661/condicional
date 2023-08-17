@@ -1,0 +1,34 @@
+def calcular_conceito(media):
+  if 9.0 <= media <= 10.0:
+    return "A"
+  elif 7.5 <= media < 9.0:
+    return "B"
+  elif 6.00 <= media < 7.5:
+    return "C"
+  elif 4.0 <= media < 6.0:
+    return "D"
+  else: 
+    return "E"
+
+def main(): 
+    try: 
+      nota1 = float(input("Digite a primeira nota: "))
+      nota2 = float(input("Digite a segunda nota: "))
+
+      #Calculando a média
+      media = (nota1 + nota2) / 2 
+
+      #Exibindo a média
+      print(f"Média do aluno: {media:.2f}")
+
+      #Obtendo o conceito
+      conceito = calcular_conceito(media)
+
+      #Exibindo o conceito
+      print(f"Conceito do aluno: {conceito}")
+
+    except ValueError:
+      print("Por favor, digite notas válidas (números).")
+
+if __name__ == "__main__":
+          main()
