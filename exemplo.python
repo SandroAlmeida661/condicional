@@ -1,0 +1,35 @@
+def calcular_salario_bruto(valor_hora, horas_trabalhadas):
+    # calculando o salário bruto
+    salario_bruto = valor_hora * horas_trabalhadas
+    return salario_bruto
+
+def calcular_descontos(salario_bruto):
+    # calculando os descontos
+    imposto_renda = salario_bruto * 0.11
+    inss = salario_bruto * 0.08
+    sindicato = salario_bruto * 0.05
+    return imposto_renda, inss, sindicato
+
+def main():
+    try:
+        valor_hora = float(input("Digite o valor do salário por hora: "))
+        horas_trabalhadas = float(input("Digite o número de horas trabalhadas no mês: "))
+
+        salario_bruto = calcular_salario_bruto(valor_hora, horas_trabalhadas)
+        imposto_renda, inss, sindicato = calcular_descontos(salario_bruto)
+
+        # calculando o salario líquido
+        salario_liquido = salario_bruto - imposto_renda - inss - sindicato 
+
+        # exibindo os resultados
+        print(f"Salário bruto: R$ {salario_bruto:.2f}")
+        print(f"Imposto de Renda (11%): R$ {imposto_renda:.2f}")
+        print(f"INSS (8%): R$ {inss:.2f}")
+        print(f"Sindicato (5%): R$ {sindicato:.2f}")
+        print(f"Salário líquido: R$ {salario_liquido:.2f}")
+
+    except ValueError:
+        print("Por favor, digite um valor numérico válido para o salário por hora e as horas trabalhadas.")
+
+if __name__ == "__main__":
+    main()
